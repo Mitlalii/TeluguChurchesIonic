@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Recipes</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<!-- <ion-content>
+  <ion-list>
+    <button ion-item *ngFor="let item of items" (click)="itemTapped($event, item)">
+      <ion-icon [name]="item.icon" item-start></ion-icon>
+      {{item.title}}
+      <div class="item-note" item-end>
+        {{item.note}}
+      </div>
+    </button>
+  </ion-list>
+  <div *ngIf="selectedItem" padding>
+    You navigated here from
+    <b>{{selectedItem.title}}</b>
+  </div>
+</ion-content> -->
+
+<ion-content>
+  <ion-list>
+    <ion-searchbar [(ngModel)]="searchTerm" (ionInput)="searchRecipes()"></ion-searchbar>
+
+    <ion-item *ngFor="let recipe of recipes" (click)="onSelect(recipe)" class="ionitemss">
+
+      <ion-thumbnail item-left>
+        <img src="{{recipe.thumbnailImageUrl}}" alt="{{recipe.recipeName}}" title="{{recipe.recipeName}}" />
+      </ion-thumbnail>
+
+      <h2 class="recipe-name">{{recipe.recipeName}}</h2>
+      <span class="cooking-time">Cooking Time:</span>
+
+      <span class="cooking-time-value">{{recipe.totalTimeInSeconds / 60}} min</span>
+
+    </ion-item>
+  </ion-list>
+</ion-content>

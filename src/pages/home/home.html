@@ -1,0 +1,85 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Home</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-slides *ngIf="banners && banners.length" autoplay="5000" loop="true" speed="500" class="slides" pager="true">
+    <ion-slide *ngFor="let banner of banners">
+      <!-- <img src="{{Image.URL}}" alt="Product Image"> -->
+      <img src="{{banner.bannerImage}}" alt="" class="img-rounded" align="middle">
+    </ion-slide>
+
+  </ion-slides>
+  <div>
+   <h3>Categories</h3>
+    <ion-buttons end>
+      <button ion-button round outline>
+        More
+        <!-- <ion-icon name="More"></ion-icon> -->
+      </button>
+    </ion-buttons>
+  </div>
+  <div style="background-color:#EEEEEE">
+    <ion-slides *ngIf="CategoryInfo && CategoryInfo.length" autoplay="5000" speed="500" loop="true" slidesPerView="3">
+      <ion-slide *ngFor="let category of CategoryInfo">
+        <!-- <img src="{{Image.URL}}" alt="Product Image"> -->
+        <img class="img-responsive" src="{{category.categoryImage}}" align="left" class="img-rounded" align="left" style="height: 100px;width: 100%;border-radius: 2%">
+      </ion-slide>
+    </ion-slides>
+  </div>
+</ion-content>
+
+<!-- <ion-footer>
+    <ion-toolbar>
+    
+      <button ion-button icon-end block color="dark">
+        <ion-icon name="arrow"></ion-icon>
+      </button>
+    </ion-toolbar>
+  </ion-footer> -->
+  <!-- <ion-footer style="background-color: #2D3238">
+      <ion-grid>
+          <ion-row no-padding no-margin>
+              <ion-col col-4 no-padding color="dark">
+                  <button ion-button full icon-only color="dark">
+                      <ion-icon name="skip-backward"></ion-icon>
+                  </button>
+              </ion-col>
+              <ion-col col-4 no-padding color="dark">
+                  <button ion-button full icon-only color="dark">
+                      <ion-icon name="skip-backward"></ion-icon>
+                  </button>
+              </ion-col>
+              <ion-col col-4 no-padding color="dark">
+                  <button ion-button full icon-only color="dark">
+                      <ion-icon name="skip-forward"></ion-icon>
+                  </button>
+              </ion-col>
+          </ion-row>
+      </ion-grid>
+  </ion-footer> -->
+
+  <ion-footer no-border text-center>
+      <ion-toolbar>
+          <ion-buttons left style="margin-left:19%">
+              <button ion-button icon-only clear large (click)="formSlider.slideTo(0)">
+                  <ion-icon name="arrow-back"></ion-icon>
+              </button>
+          </ion-buttons>
+          <ion-buttons left style="margin-left:17%">
+              <button ion-button icon-only clear large (click)="formSlider.slideTo(0)">
+                  <ion-icon name="radio-button-off"></ion-icon>
+              </button>
+          </ion-buttons>
+          <ion-buttons left style="margin-left:15%">
+              <button ion-button icon-only clear large (click)="formSlider.slideTo(formSlider.length() - 1)">
+                  <ion-icon name="square-outline"></ion-icon>
+              </button>
+          </ion-buttons>
+      </ion-toolbar>
+  </ion-footer>
